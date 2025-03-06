@@ -87,7 +87,7 @@ var currentBullet = 0;
 for(let i=0; i<100; i++)
 {
 	bullets[i] = new GameObject({width:64, height:64})
-	//bullets[i].img.src="images/mrt.jpg"
+	bullets[i].img.src="images/fireball.png"
 	bullets[i].makeSprite(playerData)
 	bullets[i].y=-10000
 	bullets[i].changeState(`walk`)
@@ -141,7 +141,7 @@ gameStates[`level1`] = function()
 		wiz.canJump = false;
 		wiz.vy = wiz.jumpHeight;
 		wiz.changeState(`jump`)
-		//sounds.play(`splode`,1)
+		sounds.play(`splode`,1)
 	}
 	shotTimer--;
 	if(shotTimer <=0)
@@ -159,7 +159,7 @@ gameStates[`level1`] = function()
 		{
 			wiz.changeState(`attack`)
 			shotTimer = shotDelay
-			//console.log(`Boom`)
+			console.log(`Boom`)
 
 			bullets[currentBullet].vx = 5*wiz.dir;
 			bullets[currentBullet].world = level;
@@ -167,7 +167,7 @@ gameStates[`level1`] = function()
 			bullets[currentBullet].y = wiz.y + 20;
 			bullets[currentBullet].dir = wiz.dir;
 			
-			//sounds.play(`splode`,1)
+			sounds.play(`splode`,1)
 
 			currentBullet++;
 			if(currentBullet>=bullets.length)
